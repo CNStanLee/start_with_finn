@@ -62,7 +62,18 @@ nvidia-smi
 DOCKER_BASE="docker run -t --rm $DOCKER_INTERACTIVE --tty --init --hostname $DOCKER_INST_NAME --gpus all"
 ```
 - Q: I want to directly get into the docker
+- A: With this command.
 ``` bash
 sudo docker ps
 sudo docker exec -it c61316d30f73 /bin/bash
+```
+- Q: Run docker without sudo
+- A:
+``` bash
+sudo groupadd docker
+sudo usermod -aG docker $USER
+newgrp docker
+docker ps
+sudo systemctl enable docker
+sudo systemctl start docker
 ```
