@@ -16,3 +16,4 @@ pip install --user -e ${FINN_ROOT}/deps/pyverilator
 pip install --user -e ${FINN_ROOT}
 ```
 - they are from docker/finn_entrypoint.sh
+- can also auto add these into the dockerfile.
