@@ -9,6 +9,10 @@ Then give it a static IP
 ``` bash
 netsh interface ip set address name="Ethernet" static 192.168.2.1 255.255.255.0
 ```
+Try to ping the default PYNQ IP now.
+``` bash
+ping 192.168.2.99
+```
 ## Disable
 To connect back to the internet
 ``` bash
