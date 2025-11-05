@@ -1,8 +1,9 @@
 # Set firewall
+All under admin
 ## Turn off
 ``` bash
 netsh advfirewall set allprofiles state off
-``` bash
+``` 
 ## Turn on
 ``` bash
 netsh advfirewall set allprofiles state on
@@ -16,7 +17,8 @@ netsh interface show interface
 ``` bash
 netsh interface ip set address name="Ethernet" static 192.168.2.1 255.255.255.0
 ```
-## Disable to connect back to the internet
+## Disable
+To connect back to the internet
 ``` bash
 netsh interface ip set address name="Ethernet" source=dhcp
 netsh interface ip set dns name="Ethernet" source=dhcp
