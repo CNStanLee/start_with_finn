@@ -33,9 +33,19 @@ export NVIDIA_VISIBLE_DEVICES=all
 
 ./run-docker.sh
 ```
+
+- configure the docker to avoid su permission 
+``` bash
+sudo groupadd docker
+sudo usermod -aG docker $USER
+newgrp docker
+docker ps
+sudo systemctl enable docker
+sudo systemctl start docker
+```
+
 - excute command below to run finn docker, more elegant way is making docker sudo-less.
 ``` bash
-sudo su
 source start_finn.sh
 ```
 - A link will be provided at port 8886, click this link you can use finn enviroment in chrome.
@@ -46,7 +56,6 @@ code .
 ```
 - You will find a "select kernel" in the top right corner -> "select another kernel" -> "Existing jupyter server" -> paste the url you get from finn.
 - Then you can debug with vscode.
-
 
 
 ### Q&A
@@ -66,14 +75,4 @@ DOCKER_BASE="docker run -t --rm $DOCKER_INTERACTIVE --tty --init --hostname $DOC
 ``` bash
 sudo docker ps
 sudo docker exec -it c61316d30f73 /bin/bash
-```
-- Q: Run docker without sudo
-- A:
-``` bash
-sudo groupadd docker
-sudo usermod -aG docker $USER
-newgrp docker
-docker ps
-sudo systemctl enable docker
-sudo systemctl start docker
 ```
